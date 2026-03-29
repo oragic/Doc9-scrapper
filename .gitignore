@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Certificates
+src/core/infra/certs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environment
+venv/
+.venv/
+
+# Distribution / build
+dist/
+build/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
