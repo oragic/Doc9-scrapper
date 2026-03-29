@@ -25,7 +25,9 @@ async def main() -> None:
     )
 
     result = await service.run(level=config.level)
-    print("TOKEN:", result.get("token") or result.get("auth_token"))
+
+    print(f"TOKEN:          {result['token']}")
+    print(f"EXECUTION TIME: {result['execution_time_seconds']}s")
 
 
 if __name__ == "__main__":

@@ -42,7 +42,15 @@ class ScraperService:
         }
         if level not in runners:
             raise ValueError(f"Invalid level '{level}'. Choose from: {list(runners)}")
-        return await runners[level]()
+
+        start = time.time()
+        data = await runners[level]()
+        elapsed = round(time.time() - start, 3)
+
+        return {
+            "token": data.get("token") or data.get("auth_token"),
+            "execution_time_seconds": elapsed,
+        }
 
     async def _run_easy(self) -> dict:
         data = await self._http.post(
